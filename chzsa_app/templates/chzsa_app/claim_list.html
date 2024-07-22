@@ -1,0 +1,32 @@
+{% extends 'chzsa_app/base.html' %}
+
+{% block title %}Список рекламаций{% endblock %}
+
+{% block content %}
+<h2>Список рекламаций</h2>
+<form method="get">
+    <label for="failure_node">Узел отказа:</label>
+    <input type="text" id="failure_node" name="failure_node" value="{{ request.GET.failure_node }}">
+    <label for="organization">Организация:</label>
+    <input type="text" id="organization" name="organization" value="{{ request.GET.organization }}">
+    <button type="submit">Фильтр</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th><a href="?sort_by=failure_date">Дата отказа</a></th>
+            <th><a href="?sort_by=operating_hours">Наработка</a></th>
+            <th><a href="?sort_by=failure_node">Узел отказа</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for claim in claims %}
+        <tr>
+            <td>{{ claim.failure_date }}</td>
+            <td>{{ claim.operating_hours }}</td>
+            <td>{{ claim.failure_node }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

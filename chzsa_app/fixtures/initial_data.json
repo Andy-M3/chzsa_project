@@ -1,0 +1,55 @@
+[
+    {
+        "model": "chzsa_app.machine",
+        "pk": 1,
+        "fields": {
+            "serial_number": "A123",
+            "model": "Автопогрузчики вилочные",
+            "engine_model": "Двигатель GA15DE Nissan",
+            "engine_serial_number": "EN123456",
+            "transmission_model": "09-B",
+            "transmission_serial_number": "TN123456",
+            "drive_axle_model": "Стар-200",
+            "drive_axle_serial_number": "DA123456",
+            "steer_axle_model": "Нетраль-725",
+            "steer_axle_serial_number": "SA123456",
+            "contract_number_date": "123/2021",
+            "shipment_date": "2023-01-01",
+            "end_user": "ООО \"Техносервис\"",
+            "delivery_address": "г. Москва, ул. Ленина, д.1",
+            "additional_options": "Кондиционер",
+            "client": 1,
+            "service_company": 2
+        }
+    },
+    {
+        "model": "chzsa_app.maintenance",
+        "pk": 1,
+        "fields": {
+            "type": "ТО-1",
+            "date": "2023-03-01",
+            "operating_hours": 100,
+            "order_number": "OR123456",
+            "order_date": "2023-02-28",
+            "organization": "ООО \"Заря\"",
+            "machine": 1,
+            "service_company": 2
+        }
+    },
+    {
+        "model": "chzsa_app.claim",
+        "pk": 1,
+        "fields": {
+            "failure_date": "2023-04-01",
+            "operating_hours": 150,
+            "failure_node": "Двигатель",
+            "failure_description": "Перегрев двигателя",
+            "recovery_method": "Замена агрегата",
+            "spare_parts_used": "Новый двигатель",
+            "recovery_date": "2023-04-05",
+            "downtime": 4,
+            "machine": 1,
+            "service_company": 2
+        }
+    }
+]

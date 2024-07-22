@@ -1,0 +1,32 @@
+{% extends 'chzsa_app/base.html' %}
+
+{% block title %}Список ТО{% endblock %}
+
+{% block content %}
+<h2>Список ТО</h2>
+<form method="get">
+    <label for="type">Вид ТО:</label>
+    <input type="text" id="type" name="type" value="{{ request.GET.type }}">
+    <label for="organization">Организация:</label>
+    <input type="text" id="organization" name="organization" value="{{ request.GET.organization }}">
+    <button type="submit">Фильтр</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th><a href="?sort_by=type">Вид ТО</a></th>
+            <th><a href="?sort_by=date">Дата проведения</a></th>
+            <th><a href="?sort_by=operating_hours">Наработка</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for maintenance in maintenances %}
+        <tr>
+            <td>{{ maintenance.type }}</td>
+            <td>{{ maintenance.date }}</td>
+            <td>{{ maintenance.operating_hours }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

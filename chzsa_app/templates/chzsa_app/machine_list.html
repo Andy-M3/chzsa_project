@@ -1,0 +1,34 @@
+{% extends 'chzsa_app/base.html' %}
+
+{% block title %}Список машин{% endblock %}
+
+{% block content %}
+<h2>Список машин</h2>
+<form method="get">
+    <label for="model">Модель:</label>
+    <input type="text" id="model" name="model" value="{{ request.GET.model }}">
+    <label for="engine_model">Модель двигателя:</label>
+    <input type="text" id="engine_model" name="engine_model" value="{{ request.GET.engine_model }}">
+    <button type="submit">Фильтр</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th><a href="?sort_by=serial_number">Зав. номер</a></th>
+            <th><a href="?sort_by=model">Модель</a></th>
+            <th><a href="?sort_by=engine_model">Модель двигателя</a></th>
+            <th><a href="?sort_by=shipment_date">Дата отгрузки</a></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for machine in machines %}
+        <tr>
+            <td>{{ machine.serial_number }}</td>
+            <td>{{ machine.model }}</td>
+            <td>{{ machine.engine_model }}</td>
+            <td>{{ machine.shipment_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
