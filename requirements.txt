@@ -1,0 +1,9 @@
+Django==5.0.6
+djangorestframework==3.14.0
+
+
+
+
+
+
+
