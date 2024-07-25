@@ -16,6 +16,3 @@ python manage.py loaddata initial_data.json
 
 Запустите сервер разработки
 python manage.py runserver
-
-Логин admin пасс 123
-Логин 123 пасс 123
